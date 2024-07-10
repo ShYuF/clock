@@ -4,7 +4,7 @@ var hour = 0;
 var minute = 0;
 var second = 0;
 
-// 动态生成分钟刻度
+// 动态生成分刻度
 function generateMinuteTicks() {
     var minuteTicks = document.getElementById("minuteTicks");
     for (var i = 0; i < 60; i++) {
@@ -22,7 +22,7 @@ function generateMinuteTicks() {
     }
 }
 
-// 动态生成小时刻度
+// 动态生成时刻度
 function generateHourTicks() {
     var hourTicks = document.getElementById("hourTicks");
     for (var i = 0; i < 12; i++) {
@@ -78,6 +78,21 @@ function updateClock() {
     }
 }
 
+function updateClockByTime(auto) {
+    if (auto) {
+        // 更新为当前时间
+        var now = new Date();
+        hour = now.getHours();
+        minute = now.getMinutes();
+        second = now.getSeconds();
+        updateClock();
+    }
+    else {
+        // TODO: 更新为指定时间
+    }
+}
+
+// 指针拖动
 function dragPointer(e, pointerId) {
     var rect = document.getElementById("clock").getBoundingClientRect();
     var cx = rect.left + rect.width / 2;
