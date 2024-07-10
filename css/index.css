@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    background-color: aliceblue;
+    font-size: 24px;
+    font-family: "SimSun", "STSong", "STSong", "SimSun", "宋体", "sans-serif";
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .clock {
+    width: 400px;
+    height: 400px;
+}
+
+.container .time {
+    width: 100%;
+    height: fit-content;
+
+    text-align: center;
+}
+
+.container .tips {
+    width: 100%;
+    height: fit-content;
+
+    text-align: center;
+}
