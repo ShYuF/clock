@@ -127,7 +127,7 @@ function dragPointer(e, pointerId) {
             hour = (hour + 1) % 24;
         }
         if (r2l && minute >= 55) {
-            hour = (hour - 1) % 24;
+            hour = (hour + 23) % 24;
         }
         var hourAngle = (hour % 12 * 30) + (minute / 2);
         document.getElementById("hourHand").setAttribute("transform", "rotate(" + hourAngle + ", 100, 100)");
@@ -150,7 +150,7 @@ function dragPointer(e, pointerId) {
             minute = minute - 1;
             if (minute == -1) {
                 minute = 59;
-                hour = (hour - 1) % 24;
+                hour = (hour + 23) % 24;
             }
         }
         var hourAngle = (hour % 12 * 30) + (minute / 2);
