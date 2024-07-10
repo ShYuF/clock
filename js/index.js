@@ -129,6 +129,8 @@ function dragPointer(e, pointerId) {
         if (r2l && minute >= 55) {
             hour = (hour - 1) % 24;
         }
+        var hourAngle = (hour % 12 * 30) + (minute / 2);
+        document.getElementById("hourHand").setAttribute("transform", "rotate(" + hourAngle + ", 100, 100)");
     } else if (pointerId == "secondHand") {
         var l2r = second >= 55,
             r2l = second < 5;
@@ -151,7 +153,10 @@ function dragPointer(e, pointerId) {
                 hour = (hour - 1) % 24;
             }
         }
-
+        var hourAngle = (hour % 12 * 30) + (minute / 2);
+        var minuteAngle = (minute * 6);
+        document.getElementById("minuteHand").setAttribute("transform", "rotate(" + minuteAngle + ", 100, 100)");
+        document.getElementById("hourHand").setAttribute("transform", "rotate(" + hourAngle + ", 100, 100)");
     }
     updateDigitalClock();
 }
