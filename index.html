@@ -2,7 +2,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8">
-        <title>SVG 钟表表盘</title>
+        <title>SVG时钟</title>
         <link rel="stylesheet" href="css/index.css">
         <script src="js/index.js"></script>
     </head>
@@ -24,11 +24,11 @@
                         <g id="minuteTicks" stroke="black" stroke-width="1"></g>
                     </g>
                     
-                    <!-- 秒、分、时针，中心圆点 -->
-                    <line x1="100" y1="100" x2="100" y2="30" stroke="blue" stroke-width="2.5" transform="rotate(0)" id="secondHand"/>
-                    <line x1="100" y1="100" x2="100" y2="40" stroke="green" stroke-width="3" transform="rotate(0)" id="minuteHand"/>
-                    <line x1="100" y1="100" x2="100" y2="60" stroke="red" stroke-width="3.5" transform="rotate(0)" id="hourHand"/>
-                    <circle cx="100" cy="100" r="2.5" fill="black" />
+                    <!-- 分、时、秒针，中心圆点 -->
+                    <line x1="100" y1="110" x2="100" y2="50" stroke="black" stroke-width="6" transform="rotate(0)" id="hourHand"/>
+                    <line x1="100" y1="115" x2="100" y2="35" stroke="gray" stroke-width="3.5" transform="rotate(0)" id="minuteHand"/>
+                    <line x1="100" y1="120" x2="100" y2="25" stroke="red" stroke-width="2.5" transform="rotate(0)" id="secondHand"/>
+                    <circle cx="100" cy="100" r="4.5" fill="rgba(70, 70, 70, 0.9)" />
                 </svg>
             </div>
             

@@ -40,7 +40,7 @@ function generateHourTicks() {
 function updateDigitalClock() {
     var hourText = hour < 10 ? "0" + hour : hour;
     var minuteText = minute < 10 ? "0" + minute : minute;
-    var secondText = second < 10 ? "0" + second : second;
+    var secondText = second < 10 ? "0" + Math.floor(second) : Math.floor(second);
     document.getElementById("digitalClock").textContent = hourText + ":" + minuteText + ":" + secondText;
 }
 
@@ -64,8 +64,8 @@ function updateClock() {
     updateDigitalClock();
 
     // 更新时间
-    second++;
-    if (second == 60) {
+    second += 0.025;
+    if (Math.floor(second) == 60) {
         second = 0;
         minute++;
     }
@@ -245,6 +245,6 @@ function init() {
     });
 
     // 每秒更新时钟
-    setInterval(updateClock, 1000);
+    setInterval(updateClock, 25);
 }
             
