@@ -41,7 +41,7 @@ function updateDigitalClock() {
     var hourText = hour < 10 ? "0" + hour : hour;
     var minuteText = minute < 10 ? "0" + minute : minute;
     var secondText = second < 10 ? "0" + second : second;
-    document.getElementById("digitalClock").textContent = "当前时间：" + hourText + ":" + minuteText + ":" + secondText;
+    document.getElementById("digitalClock").textContent = hourText + ":" + minuteText + ":" + secondText;
 }
 
 // 更新时钟指针
