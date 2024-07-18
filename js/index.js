@@ -37,6 +37,7 @@ function generateHourTicks() {
     }
 }
 
+// 更新数字时钟
 function updateDigitalClock() {
     let hourText = hour < 10 ? "0" + hour : hour;
     let minuteText = minute < 10 ? "0" + minute : minute;
@@ -78,9 +79,10 @@ function updateClock() {
     }
 }
 
-function updateClockByTime(auto) {
-    if (auto) {
-        // 更新为当前时间
+// 根据输入更新时钟时间
+function updateClockByTime(reset) {
+    if (reset) {
+        // 更新为当前时间（重置时间）
         let now = new Date();
         hour = now.getHours();
         minute = now.getMinutes();
@@ -89,6 +91,7 @@ function updateClockByTime(auto) {
         updateClock();
     }
     else {
+        // 更新为输入时间
         const re_time = /(\d{2}):(\d{2}):(\d{2})/;
         let time = re_time.exec(document.getElementById("selTime").value);
         hour = parseInt(time[1]);
@@ -248,7 +251,7 @@ function init() {
     });
 
     document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
-    
+
     generateMinuteTicks();
     generateHourTicks();
     updateClock();
