@@ -85,10 +85,17 @@ function updateClockByTime(auto) {
         hour = now.getHours();
         minute = now.getMinutes();
         second = now.getSeconds();
+        document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
         updateClock();
     }
     else {
-        // TODO: 更新为指定时间
+        const re_time = /(\d{2}):(\d{2}):(\d{2})/;
+        let time = re_time.exec(document.getElementById("selTime").value);
+        hour = parseInt(time[1]);
+        minute = parseInt(time[2]);
+        second = parseInt(time[3]);
+        console.log(time, hour, minute, second);
+        updateClock();
     }
 }
 
@@ -213,15 +220,11 @@ function init() {
     minute = now.getMinutes();
     second = now.getSeconds();
 
-    generateMinuteTicks();
-    generateHourTicks();
-    updateClock();
-
     // 添加拖动事件监听器
     // 鼠标移动时显示坐标
-    document.getElementsByTagName("body")[0].addEventListener("mousemove", function(e) {
-        document.getElementById("tips").textContent = "X: " + e.clientX + " Y: " + e.clientY;
-    });
+    // document.getElementsByTagName("body")[0].addEventListener("mousemove", function(e) {
+    //     document.getElementById("tips").textContent = "X: " + e.clientX + " Y: " + e.clientY;
+    // });
     // 秒针
     document.getElementById("secondHand").addEventListener("mousedown", function(e) {
         e.preventDefault(); // 防止默认事件（例如文本选择）
@@ -243,6 +246,12 @@ function init() {
         document.addEventListener("mousemove", moveHourHand);
         document.addEventListener("mouseup", stopDragHourHand);
     });
+
+    document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
+    
+    generateMinuteTicks();
+    generateHourTicks();
+    updateClock();
 
     // 每秒更新时钟
     setInterval(updateClock, 25);

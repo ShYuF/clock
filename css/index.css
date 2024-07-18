@@ -38,3 +38,47 @@ body {
 
     text-align: center;
 }
+
+.selectTime {
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.selectTime .selTime {
+    width: 128px;
+    height: 28px;
+
+    margin-right: 10px;
+
+    font-size: 18px;
+    font-family: monospace;
+}
+
+.selectTime .timeButton {
+    width: 80px;
+    height: 30px;
+
+    border-width: 1.5px;
+    border-radius: 8px;
+
+    background-color: rgb(240, 250, 240);
+
+    font-size: 14px;
+    font-family: "SimSun", "STSong", "STSong", "SimSun", "宋体", "sans-serif";
+}
+
+.selectTime .timeButton:hover {
+    background-color: rgb(230, 250, 230);
+}
+
+.selectTime .timeButton:active {
+    background-color: rgb(220, 250, 220);
+}
+
+.selectTime .timeButton:disabled {
+    background-color: rgb(240, 240, 240);
+}

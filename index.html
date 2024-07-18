@@ -34,11 +34,16 @@
             
 
             <div class="time" id="digitalClock"></div>
-            <div class="tips" id="tips"></div>
+            <!-- <div class="tips" id="tips"></div> -->
+            <div class="selectTime" id="selectTime">
+                <input type="time" class="selTime" id="selTime" step="1" value="00:00:00" />
+                <button class="timeButton" onclick="updateClockByTime(false)">设置时间</button>
+                <button class="timeButton" onclick="updateClockByTime(true)">重置时间</button>
+            </div>
         </div>
-
-        <script>
-            init();
-        </script>
     </body>
+
+    <script>
+        init();
+    </script>
 </html>
