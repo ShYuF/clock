@@ -87,7 +87,12 @@ function updateClockByTime(reset) {
         hour = now.getHours();
         minute = now.getMinutes();
         second = now.getSeconds();
-        document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
+
+        let hourText = hour < 10 ? "0" + hour : hour;
+        let minuteText = minute < 10 ? "0" + minute : minute;
+        let secondText = second < 10 ? "0" + Math.floor(second) : Math.floor(second);
+
+        document.getElementById("selTime").value = hourText + ":" + minuteText + ":" + secondText;
         updateClock();
     }
     else {
@@ -97,7 +102,7 @@ function updateClockByTime(reset) {
         hour = parseInt(time[1]);
         minute = parseInt(time[2]);
         second = parseInt(time[3]);
-        console.log(time, hour, minute, second);
+        // console.log(time, hour, minute, second);
         updateClock();
     }
 }
