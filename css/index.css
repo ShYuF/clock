@@ -8,12 +8,20 @@ body {
     font-family: "SimSun", "STSong", "STSong", "SimSun", "宋体", "sans-serif";
 }
 
+/* 表盘部分容器 */
 .container {
-    width: 100%;
+    width: fit-content;
     height: 100%;
 
-    margin-top: 50px;
+    margin: 70px;
+    margin-left: 140px;
+    padding: 16px;
+    padding-bottom: 30px;
 
+    border: 2px solid #0F0F0F;
+    border-radius: 16px;
+
+    background-color: #FEFEFE;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,6 +38,7 @@ body {
     height: fit-content;
 
     text-align: center;
+    font-size: 36px;
 }
 
 .container .tips {
