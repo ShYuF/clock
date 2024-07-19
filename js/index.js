@@ -5,7 +5,8 @@ var minute = 0;
 var second = 0;
 
 // 时间正则表达式（用于解析时间）
-const re_time = /(\d{2}):(\d{2}):(\d{2})/;
+const reg_time_hms = /(\d{2}):(\d{2}):(\d{2})/;
+const reg_time_hm = /(\d{2}):(\d{2})/;
 
 // 闹钟音乐
 const alarmMusic = new Audio("res/alarm.mp3");
@@ -108,7 +109,7 @@ function updateClockByTime(reset) {
     }
     else {
         // 更新为输入时间
-        let time = re_time.exec(document.getElementById("selTime").value);
+        let time = reg_time_hms.exec(document.getElementById("selTime").value);
         hour = parseInt(time[1]);
         minute = parseInt(time[2]);
         second = parseInt(time[3]);
@@ -235,11 +236,10 @@ function stopDragHourHand(e) {
 function setAlarm() {
     let alarmTime = document.getElementById("alarmTime").value;
 
-    let time = re_time.exec(alarmTime);
+    let time = reg_time_hm.exec(alarmTime);
     let alarmHour = parseInt(time[1]);
     let alarmMinute = parseInt(time[2]);
-    let alarmSecond = parseInt(time[3]);
-    let alarmTimeDiff = (alarmHour - hour) * 3600 + (alarmMinute - minute) * 60 + (alarmSecond - second);
+    let alarmTimeDiff = (alarmHour - hour) * 3600 + (alarmMinute - minute) * 60 - second;
     
     if (alarmTimeDiff < 0) {
         alarmTimeDiff += 24 * 3600;
