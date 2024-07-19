@@ -87,7 +87,11 @@ function updateClockByTime(reset) {
         hour = now.getHours();
         minute = now.getMinutes();
         second = now.getSeconds();
-        document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
+        let hourText = hour < 10 ? "0" + hour : hour;
+        let minuteText = minute < 10 ? "0" + minute : minute;
+        let secondText = second < 10 ? "0" + Math.floor(second) : Math.floor(second);
+        
+        document.getElementById("selTime").value = hourText + ":" + minuteText + ":" + secondText;
         updateClock();
     }
     else {
