@@ -4,6 +4,12 @@ var hour = 0;
 var minute = 0;
 var second = 0;
 
+// 时间正则表达式（用于解析时间）
+const re_time = /(\d{2}):(\d{2}):(\d{2})/;
+
+// 闹钟音乐
+const alarmMusic = new Audio("res/alarm.mp3");
+
 // 动态生成分刻度
 function generateMinuteTicks() {
     let minuteTicks = document.getElementById("minuteTicks");
@@ -37,12 +43,18 @@ function generateHourTicks() {
     }
 }
 
+
+// 生成数字时间
+function generateDigitalTime(h, m, s) {
+    let hourText = h < 10 ? "0" + h : h;
+    let minuteText = m < 10 ? "0" + m : m;
+    let secondText = s < 10 ? "0" + Math.floor(s) : Math.floor(s);
+    return hourText + ":" + minuteText + ":" + secondText;
+}
+
 // 更新数字时钟
 function updateDigitalClock() {
-    let hourText = hour < 10 ? "0" + hour : hour;
-    let minuteText = minute < 10 ? "0" + minute : minute;
-    let secondText = second < 10 ? "0" + Math.floor(second) : Math.floor(second);
-    document.getElementById("digitalClock").textContent = hourText + ":" + minuteText + ":" + secondText;
+    document.getElementById("digitalClock").textContent = generateDigitalTime(hour, minute, second);
 }
 
 // 更新时钟指针
@@ -96,7 +108,6 @@ function updateClockByTime(reset) {
     }
     else {
         // 更新为输入时间
-        const re_time = /(\d{2}):(\d{2}):(\d{2})/;
         let time = re_time.exec(document.getElementById("selTime").value);
         hour = parseInt(time[1]);
         minute = parseInt(time[2]);
@@ -220,6 +231,42 @@ function stopDragHourHand(e) {
     pause = false;
 }
 
+// 闹钟
+function setAlarm() {
+    let alarmTime = document.getElementById("alarmTime").value;
+
+    let time = re_time.exec(alarmTime);
+    let alarmHour = parseInt(time[1]);
+    let alarmMinute = parseInt(time[2]);
+    let alarmSecond = parseInt(time[3]);
+    let alarmTimeDiff = (alarmHour - hour) * 3600 + (alarmMinute - minute) * 60 + (alarmSecond - second);
+    
+    if (alarmTimeDiff < 0) {
+        alarmTimeDiff += 24 * 3600;
+    }
+
+    let alarmList = document.getElementById("alarmList");
+    let alarmItem = document.createElement("li");
+
+    let id = setTimeout(function() {
+            alarmList.removeChild(alarmItem);
+            alarmMusic.play();
+        }, alarmTimeDiff * 1000);
+
+    // 取消按钮
+    let cancelButton = document.createElement("button");
+    cancelButton.textContent = "取消";
+    cancelButton.onclick = function() {
+        clearTimeout(id);
+        alarmList.removeChild(this.parentNode);
+    }
+
+    alarmItem.innerHTML = alarmTime;
+    alarmItem.appendChild(cancelButton);
+
+    alarmList.appendChild(alarmItem);
+}
+
 // 初始化
 function init() {
     let now = new Date();
@@ -254,8 +301,6 @@ function init() {
         document.addEventListener("mouseup", stopDragHourHand);
     });
 
-    document.getElementById("selTime").value = hour + ":" + minute + ":" + second;
-
     generateMinuteTicks();
     generateHourTicks();
     updateClock();
@@ -263,4 +308,3 @@ function init() {
     // 每秒更新时钟
     setInterval(updateClock, 25);
 }
-            

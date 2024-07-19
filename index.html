@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div class="container">
+        <div class="container" id="clockContainer">
             <div class="clock" id="clock">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <!-- 表盘背景 -->
@@ -40,6 +40,15 @@
                 <button class="timeButton" onclick="updateClockByTime(false)">设置时间</button>
                 <button class="timeButton" onclick="updateClockByTime(true)">重置时间</button>
             </div>
+        </div>
+
+        <div class="container" id="alarmContainer">
+            <div class="alarmContainer" id="alarmContainer">
+                <input type="time" class="alarmTime" id="alarmTime" step="1" value="00:00:00" />
+                <button class="alarmButton" onclick="setAlarm()">设置闹钟</button>
+            </div>
+            <ul class="alarmList" id="alarmList">
+            </ul>
         </div>
     </body>
 
