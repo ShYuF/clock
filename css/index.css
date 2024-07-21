@@ -16,7 +16,6 @@ body {
     height: fit-content;
     
     margin: 70px;
-    margin-left: 140px;
     padding: 20px;
 
     border: 2px solid #0F0F0F;
@@ -27,6 +26,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container[id="clockContainer"] {
+    margin-left: 140px;
+
+    /* display: inline-block; */
 }
 
 .clock {
@@ -96,6 +101,10 @@ body {
     background-color: rgb(240, 240, 240);
 }
 
+.container[id="alarmContainer"] {
+    /* display: inline-block; */
+}
+
 .alarmContainer {
     width: 100%;
     height: fit-content;
@@ -137,13 +146,13 @@ body {
 .alarmList {
     width: 100%;
     height: 120px;
-    max-height: 200px;
 
     overflow-y: auto;
     scrollbar-width: none;
 
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-inline-start: 10px;
 }
 
 .alarmList li {

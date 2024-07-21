@@ -44,7 +44,6 @@ function generateHourTicks() {
     }
 }
 
-
 // 生成数字时间
 function generateDigitalTime(h, m, s) {
     let hourText = h < 10 ? "0" + h : h;
@@ -76,6 +75,16 @@ function updateClock() {
 
     // 更新数字时钟
     updateDigitalClock();
+
+    let alarmList = document.getElementById("alarmList");
+    for (let i = 0; i < alarmList.children.length; i++) {
+        let alarm = alarmList.children[i];
+        if (alarm.id == generateDigitalTime(hour, minute, second)) {
+            alarmMusic.play();
+            document.getElementById("alarmList").removeChild(alarm);
+            break;
+        }
+    }
 
     // 更新时间
     second += 0.025;
@@ -236,28 +245,29 @@ function stopDragHourHand(e) {
 function setAlarm() {
     let alarmTime = document.getElementById("alarmTime").value;
 
-    let time = reg_time_hm.exec(alarmTime);
-    let alarmHour = parseInt(time[1]);
-    let alarmMinute = parseInt(time[2]);
-    let alarmTimeDiff = (alarmHour - hour) * 3600 + (alarmMinute - minute) * 60 - second;
+    // let time = reg_time_hm.exec(alarmTime);
+    // let alarmHour = parseInt(time[1]);
+    // let alarmMinute = parseInt(time[2]);
+    // let alarmTimeDiff = (alarmHour - hour) * 3600 + (alarmMinute - minute) * 60 - second;
     
-    if (alarmTimeDiff < 0) {
-        alarmTimeDiff += 24 * 3600;
-    }
+    // if (alarmTimeDiff < 0) {
+    //     alarmTimeDiff += 24 * 3600;
+    // }
 
     let alarmList = document.getElementById("alarmList");
     let alarmItem = document.createElement("li");
+    alarmItem.id = alarmTime + ":00";
 
-    let id = setTimeout(function() {
-            alarmList.removeChild(alarmItem);
-            alarmMusic.play();
-        }, alarmTimeDiff * 1000);
+    // let id = setTimeout(function() {
+    //         alarmList.removeChild(alarmItem);
+    //         alarmMusic.play();
+    //     }, alarmTimeDiff * 1000);
 
     // 取消按钮
     let cancelButton = document.createElement("button");
     cancelButton.textContent = "取消";
     cancelButton.onclick = function() {
-        clearTimeout(id);
+        // clearTimeout(id);
         alarmList.removeChild(this.parentNode);
     }
 
