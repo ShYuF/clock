@@ -2,9 +2,10 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8">
-        <title>SVG时钟</title>
+        <title>秒表</title>
         <link rel="stylesheet" href="css/index.css">
         <script src="js/index.js"></script>
+        <script src="js/stopwatch.js"></script>
     </head>
 
     <body>
@@ -34,11 +35,12 @@
             
 
             <div class="time" id="digitalClock"></div>
-            <!-- <div class="tips" id="tips"></div> -->
             <div class="selectTime" id="selectTime">
-                <input type="time" class="selTime" id="selTime" step="1" value="00:00:00" />
-                <button class="timeButton" onclick="updateClockByTime(false)">设置时间</button>
-                <button class="timeButton" onclick="updateClockByTime(true)">重置时间</button>
+                <div class="stopwatch-controls">
+                    <button class="function-button" id="start-btn">开始</button>
+                    <button class="function-button" id="stop-btn">停止</button>
+                    <button class="function-button" id="reset-btn">重置</button>
+                </div>
             </div>
             <div class="function-buttons">
                 <button class="function-button" id="clock-btn">时钟</button>
@@ -50,10 +52,11 @@
     </body>
 
     <script>
-        init();
-        
-        document.getElementById('stopwatch-btn').addEventListener('click', function() {
-    window.location.href = 'stopwatch.html';
-});
+    initStopwatch();
+    
+    // 点击"时钟"按钮时跳转到 index.html 页面
+    document.getElementById("clock-btn").addEventListener("click", function() {
+    window.location.href = "index.html";
+    });
     </script>
 </html>
