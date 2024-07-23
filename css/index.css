@@ -15,23 +15,70 @@ body {
     width: fit-content;
     height: fit-content;
     
-    margin: 70px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
     padding: 20px;
+    
+    display: flex;
 
     border: 2px solid #0F0F0F;
     border-radius: 16px;
 
     background-color: #FEFEFE;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .container[id="clockContainer"] {
-    margin-left: 140px;
+    top: 50px;
+}
 
-    /* display: inline-block; */
+.container[id="alarmContainer"] {
+    top: 650px;
+}
+
+.container[id="stopwatchContainer"] {
+    top: 50px;
+}
+
+.container[id="countContainer"] {
+    width: 400px;
+    height: 200px;
+
+    top: 650px;
+}
+
+button {
+    border-width: 1px;
+    border-radius: 8px;
+
+    vertical-align: top;
+
+    background-color: rgb(240, 250, 240);
+}
+
+button:hover {
+    background-color: rgb(230, 250, 230);
+}
+
+button:active {
+    background-color: rgb(220, 250, 220);
+}
+
+button:disabled {
+    background-color: rgb(240, 240, 240);
+}
+
+.container button {
+    width: 60px;
+    height: 30px;
+
+    margin: 5px;
+
+    font-size: 14px;
 }
 
 .clock {
@@ -48,12 +95,6 @@ body {
     font-family: monospace;
 }
 
-.tips {
-    width: 100%;
-    height: fit-content;
-
-    text-align: center;
-}
 
 .selectTime {
     width: 100%;
@@ -79,30 +120,10 @@ body {
     width: 80px;
     height: 30px;
 
-    border-width: 1.5px;
-    border-radius: 8px;
-
+    margin: 0;
     margin-left: 10px;
 
-    background-color: rgb(240, 250, 240);
-
     font-size: 14px;
-}
-
-.selectTime .timeButton:hover {
-    background-color: rgb(230, 250, 230);
-}
-
-.selectTime .timeButton:active {
-    background-color: rgb(220, 250, 220);
-}
-
-.selectTime .timeButton:disabled {
-    background-color: rgb(240, 240, 240);
-}
-
-.container[id="alarmContainer"] {
-    /* display: inline-block; */
 }
 
 .alarmContainer {
@@ -123,24 +144,7 @@ body {
     width: 80px;
     height: 32px;
 
-    border-width: 1.5px;
-    border-radius: 8px;
-
-    background-color: rgb(240, 250, 240);
-
     font-size: 14px;
-}
-
-.alarmContainer .alarmButton:hover {
-    background-color: rgb(230, 250, 230);
-}
-
-.alarmContainer .alarmButton:active {
-    background-color: rgb(220, 250, 220);
-}
-
-.alarmContainer .alarmButton:disabled {
-    background-color: rgb(240, 240, 240);
 }
 
 .alarmList {
@@ -148,18 +152,19 @@ body {
     height: 120px;
 
     overflow-y: auto;
-    scrollbar-width: none;
+    scrollbar-width: thin;
 
     margin-top: 10px;
     margin-bottom: 10px;
     padding-inline-start: 10px;
 }
 
-.alarmList li {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
+.alarmList li { 
     display: block;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
 
     font-size: 24px;
     font-family: monospace;
@@ -167,15 +172,75 @@ body {
 
 .alarmList li button {
     width: 60px;
-    height: 28px;
+    height: 26px;
 
-    border-width: 1.5px;
-    border-radius: 8px;
-
-    float: right;
-    margin-right: 20px;
-
-    background-color: rgb(240, 250, 240);
+    margin: 0;
 
     font-size: 14px;
+}
+
+.stopwatch-controls button {
+    width: 80px;
+    height: 40px;
+
+    margin: 10px;
+
+    font-size: 18px;
+
+}
+
+.watchList {
+    width: 100%;
+    height: 180px;
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-inline-start: 5px;
+}
+
+.watchList li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    
+    display: block;
+
+    font-size: 24px;
+    font-family: monospace;
+}
+
+.functionButtons {
+    width: fit-content;
+    height: fit-content;
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.functionButtons[id="caPage"] {
+    top: 880px;
+}
+
+.functionButtons[id="swPage"] {
+    top: 900px;
+}
+
+.functionButtons button {
+    width: 100px;
+    height: 40px;
+
+    margin: 10px;
+
+    font-size: 18px;
 }

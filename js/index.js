@@ -269,9 +269,20 @@ function setAlarm() {
     cancelButton.onclick = function() {
         // clearTimeout(id);
         alarmList.removeChild(this.parentNode);
+
+        for (let i = 0; i < alarmList.children.length; i++) {
+            if (i % 2 == 1) {
+                alarmList.children[i].style.backgroundColor = "#f0f0f0";
+            } else {
+                alarmList.children[i].style = "";
+            }
+        }
+    }
+    if (alarmList.children.length % 2 == 1) {
+        alarmItem.style.backgroundColor = "#f0f0f0";
     }
 
-    alarmItem.innerHTML = alarmTime;
+    alarmItem.innerHTML = alarmTime + "&nbsp;&nbsp;&nbsp;&nbsp;";
     alarmItem.appendChild(cancelButton);
 
     alarmList.appendChild(alarmItem);
@@ -314,6 +325,10 @@ function init() {
     generateMinuteTicks();
     generateHourTicks();
     updateClock();
+
+    document.getElementById("stopwatch-btn").addEventListener("click", function() {
+        window.location.href = "stopwatch.html";
+    });
 
     // 每秒更新时钟
     setInterval(updateClock, 25);

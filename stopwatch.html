@@ -2,13 +2,14 @@
 <html lang="zh-CN">
     <head>
         <meta charset="UTF-8">
-        <title>SVG时钟</title>
+        <title>秒表</title>
         <link rel="stylesheet" href="css/index.css">
         <script src="js/index.js"></script>
+        <script src="js/stopwatch.js"></script>
     </head>
 
     <body>
-        <div class="container" id="clockContainer">
+        <div class="container" id="stopwatchContainer">
             <div class="clock" id="clock">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                     <!-- 表盘背景 -->
@@ -34,28 +35,25 @@
             
 
             <div class="time" id="digitalClock"></div>
-            <!-- <div class="tips" id="tips"></div> -->
-            <div class="selectTime" id="selectTime">
-                <input type="time" class="selTime" id="selTime" step="1" value="00:00:00" />
-                <button class="timeButton" onclick="updateClockByTime(false)">设置时间</button>
-                <button class="timeButton" onclick="updateClockByTime(true)">重置时间</button>
+            <div class="stopwatch-controls">
+                <button id="start-btn">开始</button>
+                <button id="pause-btn">暂停</button>
+                <button id="record-btn">记录</button>
+                <button id="reset-btn">重置</button>
+            </div>
             </div>
         </div>
 
-        <div class="container" id="alarmContainer">
-            <div class="alarmContainer" id="aContainer">
-                <input type="time" class="alarmTime" id="alarmTime" value="00:00" />
-                <button class="alarmButton" onclick="setAlarm()">设置闹钟</button>
-            </div>
-            <ul class="alarmList" id="alarmList">
-            </ul>
+        <div class="container" id="countContainer">
+            <ul class="watchList" id="watchList"></ul>
         </div>
-        <div class="functionButtons" id="caPage">
-            <button id="stopwatch-btn">秒表</button>
+        <div class="functionButtons" id="swPage">
+            <button id="clock-btn">时钟/闹钟</button>
             <button id="timer-btn">计时</button>
+        </div>
     </body>
 
     <script>
-        init();
+        initStopwatch();
     </script>
 </html>
