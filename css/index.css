@@ -144,6 +144,8 @@ button:disabled {
     width: 80px;
     height: 32px;
 
+    margin-top: 0;
+
     font-size: 14px;
 }
 
