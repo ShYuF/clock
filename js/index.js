@@ -109,11 +109,8 @@ function updateClockByTime(reset) {
         hour = now.getHours();
         minute = now.getMinutes();
         second = now.getSeconds();
-        let hourText = hour < 10 ? "0" + hour : hour;
-        let minuteText = minute < 10 ? "0" + minute : minute;
-        let secondText = second < 10 ? "0" + Math.floor(second) : Math.floor(second);
         
-        document.getElementById("selTime").value = hourText + ":" + minuteText + ":" + secondText;
+        document.getElementById("selTime").value = "00:00:00";
         updateClock();
     }
     else {
@@ -282,7 +279,7 @@ function setAlarm() {
         alarmItem.style.backgroundColor = "#f0f0f0";
     }
 
-    alarmItem.innerHTML = alarmTime + "&nbsp;&nbsp;&nbsp;&nbsp;";
+    alarmItem.innerHTML = alarmTime + "&nbsp;&nbsp;&nbsp;&nbsp; ";
     alarmItem.appendChild(cancelButton);
 
     alarmList.appendChild(alarmItem);
@@ -326,8 +323,12 @@ function init() {
     generateHourTicks();
     updateClock();
 
+    // 跳转页面
     document.getElementById("stopwatch-btn").addEventListener("click", function() {
         window.location.href = "stopwatch.html";
+    });
+    document.getElementById("timer-btn").addEventListener("click", function() {
+        window.location.href = "timer.html";
     });
 
     // 每秒更新时钟

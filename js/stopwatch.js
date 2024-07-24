@@ -184,10 +184,14 @@ function initStopwatch() {
     document.getElementById("record-btn").addEventListener("click", recordStopwatch);
     document.getElementById("reset-btn").addEventListener("click", resetStopwatch);
 
-    // 点击"时钟"按钮时跳转到 index.html 页面
+    // 点击按钮跳转页面
     document.getElementById("clock-btn").addEventListener("click", function() {
         window.location.href = "index.html";
     });
+    document.getElementById("timer-btn").addEventListener("click", function() {
+        window.location.href = "timer.html";
+    });
+
     // 每秒更新时钟
     setInterval(updateClock, 25);
 }

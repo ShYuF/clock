@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>秒表</title>
         <link rel="stylesheet" href="css/index.css">
-        <script src="js/index.js"></script>
+        <link rel="stylesheet" href="css/stopwatch.css">
         <script src="js/stopwatch.js"></script>
     </head>
 
@@ -37,9 +37,9 @@
             <div class="time" id="digitalClock"></div>
             <div class="stopwatch-controls">
                 <button id="start-btn">开始</button>
-                <button id="pause-btn">暂停</button>
-                <button id="record-btn">记录</button>
-                <button id="reset-btn">重置</button>
+                <button id="pause-btn" disabled="true">暂停</button>
+                <button id="record-btn" disabled="true">记录</button>
+                <button id="reset-btn" disabled="true">重置</button>
             </div>
             </div>
         </div>
@@ -49,6 +49,7 @@
         </div>
         <div class="functionButtons" id="swPage">
             <button id="clock-btn">时钟/闹钟</button>
+            <button id="stopwatch-btn" disabled="true">秒表</button>
             <button id="timer-btn">计时</button>
         </div>
     </body>
