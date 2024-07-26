@@ -9,7 +9,7 @@ const reg_time_hms = /(\d{2}):(\d{2}):(\d{2})/;
 const reg_time_hm = /(\d{2}):(\d{2})/;
 
 // 闹钟音乐
-const alarmMusic = new Audio("res/alarm.mp3");
+const alarmMusic = new Audio("res/audio/alarm.mp3");
 
 // 动态生成分刻度
 function generateMinuteTicks() {

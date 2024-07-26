@@ -9,7 +9,7 @@ var hoursWheelSel = 0;
 var minutesWheelSel = 0;
 var secondsWheelSel = 0;
 
-const timerMusic = new Audio("res/timer.mp3");
+const timerMusic = new Audio("res/audio/timer.mp3");
 
 // 动态生成分刻度
 function generateMinuteTicks() {
