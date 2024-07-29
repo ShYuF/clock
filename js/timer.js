@@ -91,7 +91,7 @@ function generateSelector() {
 function updateDigitalClock() {
     let hourText = hour < 10 ? "0" + hour : hour;
     let minuteText = minute < 10 ? "0" + minute : minute;
-    let secondText = second < 10 ? "0" + Math.ceil(second) : Math.ceil(second);
+    let secondText = Math.ceil(second) < 10 ? "0" + Math.ceil(second) : Math.ceil(second);
     document.getElementById("digitalClock").textContent = hourText + ":" + minuteText + ":" + secondText;
 }
 
