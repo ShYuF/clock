@@ -48,7 +48,7 @@ function generateHourTicks() {
 function generateDigitalTime(h, m, s) {
     let hourText = h < 10 ? "0" + h : h;
     let minuteText = m < 10 ? "0" + m : m;
-    let secondText = s < 10 ? "0" + Math.floor(s) : Math.floor(s);
+    let secondText = Math.floor(s) < 10 ? "0" + Math.floor(s) : Math.floor(s);
     return hourText + ":" + minuteText + ":" + secondText;
 }
 
